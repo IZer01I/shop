@@ -1,0 +1,50 @@
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\App.g.cs
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_MarkupCompile.cache
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_MarkupCompile.lref
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\RegWindow.g.cs
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\StoreWindow.g.cs
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_Content.g.cs
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.exe.config
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.exe
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.pdb
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\RegWindow.baml
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\StoreWindow.baml
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.g.resources
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.Properties.Resources.resources
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.GenerateResource.cache
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.CopyComplete
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.exe
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.pdb
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\MailСonf.g.cs
+C:\Users\user\Desktop\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\MailСonf.baml
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.exe.config
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.exe
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\OnlineGameStore.pdb
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\EntityFramework.SqlServer.dll
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\EntityFramework.dll
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\ru\EntityFramework.resources.dll
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.AssemblyReference.cache
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\MailСonf.g.cs
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\RegWindow.g.cs
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\StoreWindow.g.cs
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\App.g.cs
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_Content.g.cs
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_MarkupCompile.cache
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore_MarkupCompile.lref
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\MailСonf.baml
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\RegWindow.baml
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\View\Windows\StoreWindow.baml
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.g.resources
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.Properties.Resources.resources
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.GenerateResource.cache
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.csproj.CoreCompileInputs.cache
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.exe
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\obj\Debug\OnlineGameStore.pdb
+D:\Студент\3 курс\ИС-31\OnlineGameStore\OnlineGameStore\bin\Debug\DataAnnotationsExtensions.dll

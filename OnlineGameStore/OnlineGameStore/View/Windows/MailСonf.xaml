@@ -1,0 +1,18 @@
+﻿<Window x:Class="OnlineGameStore.View.Windows.MailСonf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OnlineGameStore.View.Windows"
+        mc:Ignorable="d"
+        Background="Black"
+        Title="Подтверждение почты" Height="124.644" Width="234.521" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" Width="150" Height="25" Margin="0,0,0,40" Text="{Binding CodeConf}"/>
+        <Button Content="Подтвердить" Grid.Row="0" Width="100" Height="35" Margin="0,30,0,0" Click="Button_Click" IsDefault="True"/>
+    </Grid>
+</Window>

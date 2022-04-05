@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RGIisblXni9kb3Tp6gx3MUUPdfEqmOPB0VbpMzUdO5xXDdtx3e6F4/0eOo3lDe7lTyQQG7zb+wUWnmfy9Q8xDQ==",
+  "success": true,
+  "projectFilePath": "D:\\Студент\\3 курс\\ИС-31\\OnlineGameStore\\OnlineGameStore\\OnlineGameStore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Student\\.nuget\\packages\\dataannotationsextensions\\5.0.1.27\\dataannotationsextensions.5.0.1.27.nupkg.sha512",
+    "C:\\Users\\Student\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
+    "C:\\Users\\Student\\.nuget\\packages\\entityframework.ru\\6.2.0\\entityframework.ru.6.2.0.nupkg.sha512"
+  ],
+  "logs": []
+}
