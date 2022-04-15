@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\user\\Desktop\\OnlineGameStore\\OnlineGameStore\\OnlineGameStore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\user\\Desktop\\OnlineGameStore\\OnlineGameStore\\OnlineGameStore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\OnlineGameStore\\OnlineGameStore\\OnlineGameStore.csproj",
+        "projectName": "OnlineGameStore",
+        "projectPath": "C:\\Users\\user\\Desktop\\OnlineGameStore\\OnlineGameStore\\OnlineGameStore.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\OnlineGameStore\\OnlineGameStore\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "DataAnnotationsExtensions": {
+              "target": "Package",
+              "version": "[5.0.1.27, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "EntityFramework.ru": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

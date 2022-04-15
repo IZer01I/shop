@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OGSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Developer" Relationship="Self.FK_Developer_Country" FromRole="Country" ToRole="Developer" />
+    <NavigationProperty Name="Publisher" Relationship="Self.FK_Publisher_Country" FromRole="Country" ToRole="Publisher" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Country" FromRole="Country" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Developer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Developer_Country" FromRole="Developer" ToRole="Country" />
+    <NavigationProperty Name="Publisher" Relationship="Self.DeveloperOfPublisher" FromRole="Developer" ToRole="Publisher" />
+    <NavigationProperty Name="Game" Relationship="Self.GameOfDeveloper" FromRole="Developer" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SystemRequirementID" Type="Int32" Nullable="false" />
+    <Property Name="GenreID" Type="Int32" Nullable="false" />
+    <Property Name="DeveloperID" Type="Int32" Nullable="false" />
+    <Property Name="PublisherID" Type="Int32" />
+    <NavigationProperty Name="SystemRequirement" Relationship="Self.FK__Game__SystemRequ__2E1BDC42" FromRole="Game" ToRole="SystemRequirement" />
+    <NavigationProperty Name="Genre" Relationship="Self.FK_Game_Genre" FromRole="Game" ToRole="Genre" />
+    <NavigationProperty Name="Image" Relationship="Self.GameHasImages" FromRole="Game" ToRole="Image" />
+    <NavigationProperty Name="Developer" Relationship="Self.GameOfDeveloper" FromRole="Game" ToRole="Developer" />
+    <NavigationProperty Name="User" Relationship="Self.GameOfUser" FromRole="Game" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Game" Relationship="Self.FK_Game_Genre" FromRole="Genre" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Image1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="Game" Relationship="Self.GameHasImages" FromRole="Image" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Publisher_Country" FromRole="Publisher" ToRole="Country" />
+    <NavigationProperty Name="Developer" Relationship="Self.DeveloperOfPublisher" FromRole="Publisher" ToRole="Developer" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="SystemRequirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MinimalReqInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OptimalReqInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__Game__SystemRequ__2E1BDC42" FromRole="SystemRequirement" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="Int64" Nullable="false" />
+    <Property Name="Password" Type="Int64" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" />
+    <Property Name="Purse" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_User_Country" FromRole="User" ToRole="Country" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Game" Relationship="Self.GameOfUser" FromRole="User" ToRole="Game" />
+  </EntityType>
+  <Association Name="FK_Developer_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Developer">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publisher_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Publisher">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Game__SystemRequ__2E1BDC42">
+    <End Role="SystemRequirement" Type="Self.SystemRequirement" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemRequirement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="SystemRequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Genre">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeveloperOfPublisher">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+  </Association>
+  <Association Name="GameHasImages">
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <End Role="Image" Type="Self.Image" Multiplicity="*" />
+  </Association>
+  <Association Name="GameOfDeveloper">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+  </Association>
+  <Association Name="GameOfUser">
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="OGSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="Developer" EntityType="Self.Developer" />
+    <EntitySet Name="Game" EntityType="Self.Game" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" />
+    <EntitySet Name="Image" EntityType="Self.Image" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="SystemRequirement" EntityType="Self.SystemRequirement" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_Developer_Country" Association="Self.FK_Developer_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Developer" EntitySet="Developer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publisher_Country" Association="Self.FK_Publisher_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Publisher" EntitySet="Publisher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Country" Association="Self.FK_User_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Game__SystemRequ__2E1BDC42" Association="Self.FK__Game__SystemRequ__2E1BDC42">
+      <End Role="SystemRequirement" EntitySet="SystemRequirement" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Genre" Association="Self.FK_Game_Genre">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="DeveloperOfPublisher" Association="Self.DeveloperOfPublisher">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="Publisher" EntitySet="Publisher" />
+    </AssociationSet>
+    <AssociationSet Name="GameHasImages" Association="Self.GameHasImages">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Image" EntitySet="Image" />
+    </AssociationSet>
+    <AssociationSet Name="GameOfDeveloper" Association="Self.GameOfDeveloper">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="GameOfUser" Association="Self.GameOfUser">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OGSModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OGSModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
