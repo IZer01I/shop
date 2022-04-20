@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище OnlineGameStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Developer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CountryID" Type="int" />
+  </EntityType>
+  <EntityType Name="DeveloperOfPublisher">
+    <Key>
+      <PropertyRef Name="DeveloperID" />
+      <PropertyRef Name="PublisherID" />
+    </Key>
+    <Property Name="DeveloperID" Type="int" Nullable="false" />
+    <Property Name="PublisherID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="SystemRequirementID" Type="int" Nullable="false" />
+    <Property Name="GenreID" Type="int" Nullable="false" />
+    <Property Name="DeveloperID" Type="int" Nullable="false" />
+    <Property Name="PublisherID" Type="int" />
+  </EntityType>
+  <EntityType Name="GameHasImages">
+    <Key>
+      <PropertyRef Name="GameID" />
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="GameID" Type="int" Nullable="false" />
+    <Property Name="ImageID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameOfDeveloper">
+    <Key>
+      <PropertyRef Name="DeveloperID" />
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="DeveloperID" Type="int" Nullable="false" />
+    <Property Name="GameID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GameOfUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="GameID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="GameID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Image" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryID" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SystemRequirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MinimalReqInfo" Type="ntext" Nullable="false" />
+    <Property Name="OptimalReqInfo" Type="ntext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="CountryID" Type="int" />
+    <Property Name="Purse" Type="money" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Game__SystemRequ__2E1BDC42">
+    <End Role="SystemRequirement" Type="Self.SystemRequirement" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemRequirement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="SystemRequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameOfDev__Devel__5535A963">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
+    <End Role="GameOfDeveloper" Type="Self.GameOfDeveloper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GameOfDeveloper">
+        <PropertyRef Name="DeveloperID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameOfDev__GameI__300424B4">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="GameOfDeveloper" Type="Self.GameOfDeveloper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GameOfDeveloper">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GameOfUse__GameI__30F848ED">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="GameOfUser" Type="Self.GameOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GameOfUser">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Developer_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Developer" Type="Self.Developer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Developer">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeveloperOfPublisher_Developer">
+    <End Role="Developer" Type="Self.Developer" Multiplicity="1" />
+    <End Role="DeveloperOfPublisher" Type="Self.DeveloperOfPublisher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeveloperOfPublisher">
+        <PropertyRef Name="DeveloperID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeveloperOfPublisher_Publisher">
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+    <End Role="DeveloperOfPublisher" Type="Self.DeveloperOfPublisher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Publisher">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeveloperOfPublisher">
+        <PropertyRef Name="PublisherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Game_Genre">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+    <End Role="Game" Type="Self.Game" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Game">
+        <PropertyRef Name="GenreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GameHasImages_Game">
+    <End Role="Game" Type="Self.Game" Multiplicity="1" />
+    <End Role="GameHasImages" Type="Self.GameHasImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GameHasImages">
+        <PropertyRef Name="GameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GameHasImages_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="GameHasImages" Type="Self.GameHasImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GameHasImages">
+        <PropertyRef Name="ImageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Publisher_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Publisher" Type="Self.Publisher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Publisher">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище OnlineGameStoreModelContainer">
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Developer" EntityType="Self.Developer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeveloperOfPublisher" EntityType="Self.DeveloperOfPublisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameHasImages" EntityType="Self.GameHasImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameOfDeveloper" EntityType="Self.GameOfDeveloper" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GameOfUser" EntityType="Self.GameOfUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemRequirement" EntityType="Self.SystemRequirement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Game__SystemRequ__2E1BDC42" Association="Self.FK__Game__SystemRequ__2E1BDC42">
+      <End Role="SystemRequirement" EntitySet="SystemRequirement" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameOfDev__Devel__5535A963" Association="Self.FK__GameOfDev__Devel__5535A963">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="GameOfDeveloper" EntitySet="GameOfDeveloper" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameOfDev__GameI__300424B4" Association="Self.FK__GameOfDev__GameI__300424B4">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="GameOfDeveloper" EntitySet="GameOfDeveloper" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GameOfUse__GameI__30F848ED" Association="Self.FK__GameOfUse__GameI__30F848ED">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="GameOfUser" EntitySet="GameOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Developer_Country" Association="Self.FK_Developer_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Developer" EntitySet="Developer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeveloperOfPublisher_Developer" Association="Self.FK_DeveloperOfPublisher_Developer">
+      <End Role="Developer" EntitySet="Developer" />
+      <End Role="DeveloperOfPublisher" EntitySet="DeveloperOfPublisher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeveloperOfPublisher_Publisher" Association="Self.FK_DeveloperOfPublisher_Publisher">
+      <End Role="Publisher" EntitySet="Publisher" />
+      <End Role="DeveloperOfPublisher" EntitySet="DeveloperOfPublisher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Game_Genre" Association="Self.FK_Game_Genre">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Game" EntitySet="Game" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GameHasImages_Game" Association="Self.FK_GameHasImages_Game">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="GameHasImages" EntitySet="GameHasImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GameHasImages_Image" Association="Self.FK_GameHasImages_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="GameHasImages" EntitySet="GameHasImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Publisher_Country" Association="Self.FK_Publisher_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Publisher" EntitySet="Publisher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Country" Association="Self.FK_User_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
